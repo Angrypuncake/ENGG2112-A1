@@ -17,7 +17,7 @@ print(clinical_data.head())
 print(lifestyle_data.head())
 
 #Dropping more columns from lfestyle dataset
-columns_to_remove = ['Hemisphere', 'Patient ID', 'Income', 'Continent', 'Country', 'Diet']
+columns_to_remove = ['Hemisphere', 'Patient ID', 'Income', 'Continent', 'Country']
 lifestyle_data = lifestyle_data.drop(columns=columns_to_remove)
 
 print(lifestyle_data.head())
