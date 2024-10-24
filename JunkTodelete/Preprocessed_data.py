@@ -9,11 +9,9 @@ from sklearn.compose import ColumnTransformer
 
 
 # Load data
-clinical_data = pd.read_csv('clinical.csv')
-lifestyle_data = pd.read_csv('lifestyle.csv')
+lifestyle_data = pd.read_csv('../datasets/lifestyle_dataset.csv')
 
 # View basic information
-print(clinical_data.head())
 print(lifestyle_data.head())
 
 #Dropping more columns from lfestyle dataset
@@ -48,10 +46,6 @@ X_train, X_test, y_train, y_test = train_test_split(Xlifestyle_scaled, Ylifestyl
 
 # Check the shape of the scaled and transformed dataset
 print(Xlifestyle_scaled.shape)
-
-# Preprocessing the clinical dataset by dropping the output column
-Xclinical = clinical_data.drop('output', axis=1)
-Yclinical = clinical_data['output']
 
 
 print(Xlifestyle.head())
