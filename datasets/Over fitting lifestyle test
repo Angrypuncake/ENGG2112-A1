@@ -1,0 +1,27 @@
+#CODE FOR TESTING OF OVER FITTING IN LIFESTYLE
+(when running at start have to include lifestyle KNN code)
+
+from sklearn.metrics import accuracy_score, classification_report
+
+# Use the best model from GridSearchCV
+best_knn_lifestyle = grid_search.best_estimator_
+
+# Get training accuracy
+Y_train_pred = best_knn_lifestyle.predict(X_train)
+train_accuracy = accuracy_score(Y_train, Y_train_pred)
+print("Lifestyle Dataset - Training Accuracy:", train_accuracy)
+
+# Get testing accuracy
+Y_test_pred = best_knn_lifestyle.predict(X_test)
+test_accuracy = accuracy_score(Y_test, Y_test_pred)
+print("Lifestyle Dataset - Testing Accuracy:", test_accuracy)
+
+# Print classification report for more insights
+print("Lifestyle Dataset - Classification Report on Training Set:\n", classification_report(Y_train, Y_train_pred))
+print("Lifestyle Dataset - Classification Report on Test Set:\n", classification_report(Y_test, Y_test_pred))
+
+# Check for overfitting: If training accuracy >> testing accuracy, there may be overfitting
+if train_accuracy > test_accuracy + 0.1:  # Arbitrary threshold, adjust as needed
+    print("Potential overfitting detected in the lifestyle dataset model.")
+else:
+    print("No significant overfitting detected in the lifestyle dataset model.")
